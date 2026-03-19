@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  todo-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: todo-typescript-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./src:/app/src:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

@@ -1,0 +1,27 @@
+{
+  "name": "todo-typescript-exercise",
+  "version": "1.0.0",
+  "description": "Ejercicio TypeScript - Essential TypeScript: Marking Tasks Complete",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js",
+    "watch": "tsc --watch",
+    "clean": "rimraf dist",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "typescript",
+    "todo",
+    "exercise",
+    "essential-typescript"
+  ],
+  "author": "Clan Raccoon",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.0.0"
+  }
+}
