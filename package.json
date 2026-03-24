@@ -1,7 +1,7 @@
 {
   "name": "todo-typescript-exercise",
   "version": "1.0.0",
-  "description": "Ejercicio TypeScript - Essential TypeScript: Marking Tasks Complete",
+  "description": "Ejercicio TypeScript - Essential TypeScript: Marking Tasks Complete con API json-server",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -9,19 +9,28 @@
     "dev": "tsc && node dist/index.js",
     "watch": "tsc --watch",
     "clean": "rimraf dist",
-    "rebuild": "npm run clean && npm run build"
+    "rebuild": "npm run clean && npm run build",
+    "api": "json-server --watch db/db.json --port 3001 --routes db/routes.json",
+    "api:simple": "json-server --watch db/db.json --port 3001",
+    "frontend": "npx serve public -l 3000",
+    "dev:all": "concurrently \"npm run api:simple\" \"npm run frontend\""
   },
   "keywords": [
     "typescript",
     "todo",
     "exercise",
-    "essential-typescript"
+    "essential-typescript",
+    "json-server",
+    "crud"
   ],
   "author": "Clan Raccoon",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^25.5.0",
-    "rimraf": "^5.0.10",
+    "@types/node": "^20.0.0",
+    "concurrently": "^8.2.2",
+    "json-server": "0.17.4",
+    "rimraf": "^5.0.0",
+    "serve": "^14.2.6",
     "typescript": "^5.0.0"
   }
 }

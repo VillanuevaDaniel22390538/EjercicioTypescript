@@ -8,13 +8,11 @@ services:
     container_name: todo-typescript-app
     ports:
       - "3000:3000"
+      - "3001:3001"
     environment:
       - NODE_ENV=production
     volumes:
       - ./src:/app/src:ro
+      - ./public:/app/public:ro
+      - ./db:/app/db
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "node", "-e", "console.log('OK')"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
